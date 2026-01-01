@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Management - Pharmacy MS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb", // Blue-600 from screenshot
+                        "background-light": "#f3f4f6", // Light gray background
+                        "background-dark": "#111827", // Dark gray/black background
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1f2937",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 h-screen overflow-hidden flex font-sans antialiased">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark flex flex-col flex-shrink-0 transition-colors duration-200 h-full overflow-y-auto">
+<div class="h-16 flex items-center px-6 border-b border-border-light dark:border-border-dark">
+<h1 class="text-lg font-bold text-primary flex items-center gap-2">
+<span>Pharmacy MS</span>
+</h1>
+<button class="ml-auto text-gray-400 hover:text-primary dark:hover:text-white">
+<span class="material-icons-outlined text-sm">arrow_back</span>
+</button>
+</div>
+<nav class="flex-1 py-4 space-y-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">home</span>
+                Overview
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">shopping_cart</span>
+                Point of Sale
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium bg-primary text-white rounded-md shadow-sm transition-colors" href="#">
+<span class="material-icons-outlined text-xl">assignment_ind</span>
+                Customer
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">inventory_2</span>
+                Stock Management
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">category</span>
+                Product Catalog
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">notifications_active</span>
+                Stock Alerts
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">smart_toy</span>
+                AI Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">analytics</span>
+                Analytics &amp; Reports
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">history</span>
+                Transaction History
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">settings_suggest</span>
+                AI Configuration
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">person</span>
+                User Profile
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">settings</span>
+                System Settings
+            </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl transform rotate-180">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-full overflow-hidden">
+<div class="flex-1 overflow-y-auto p-4 md:p-8">
+<div class="max-w-7xl mx-auto space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Customer</h1>
+<button class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm transition-colors">
+<span class="material-icons-outlined text-lg">add</span>
+                        Add Customer
+                    </button>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow border border-border-light dark:border-border-dark flex flex-col h-[calc(100vh-140px)]">
+<div class="p-4 border-b border-border-light dark:border-border-dark">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons-outlined text-gray-400">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg leading-5 bg-white dark:bg-gray-800 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm text-gray-900 dark:text-white" placeholder="Search customers by name or phone..." type="text"/>
+</div>
+</div>
+<div class="flex flex-col flex-1 overflow-hidden">
+<div class="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-b border-border-light dark:border-border-dark flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<label class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Sort by:</label>
+<select class="form-select text-sm py-1 pl-2 pr-8 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:ring-primary focus:border-primary">
+<option>Date Added</option>
+<option>Name</option>
+</select>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-icons-outlined text-sm">arrow_downward</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Per page:</label>
+<select class="form-select text-sm py-1 pl-2 pr-8 border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:ring-primary focus:border-primary">
+<option>20</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">
+                                Showing 1 to 20 of 27 results
+                            </div>
+</div>
+<div class="flex-1 overflow-auto">
+<table class="min-w-full divide-y divide-border-light dark:divide-border-dark">
+<thead class="bg-gray-50 dark:bg-gray-800 sticky top-0 z-10">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Customer</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Contact</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Address</th>
+<th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Added</th>
+<th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-surface-dark divide-y divide-border-light dark:divide-border-dark">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Walssxc</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                055454584
+                                            </div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">12/8/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">cash sasa</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                1111111111
+                                            </div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">12/7/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">mohidul islam</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                    01726352884
+                                                </div>
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">email</span>
+                                                    asdf@lacom
+                                                </div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">12/5/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Sandip</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                    7474747474
+                                                </div>
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">email</span>
+                                                    kiran123@gmail.com
+                                                </div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">11/24/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">There is Some Bug</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                8979675645
+                                            </div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">11/18/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">salman khalid</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                    +923314679868
+                                                </div>
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">email</span>
+                                                    salmankhalid055@gmail.com
+                                                </div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">11/17/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Deserunt dignissimos</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                    +1 (823) 807-7682
+                                                </div>
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">email</span>
+                                                    falapu@mailinator.com
+                                                </div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">location_on</span>
+                                                Laboriosam fuga Co
+                                            </div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">9/18/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Marija Novak</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">phone</span>
+                                                    1234567890
+                                                </div>
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-gray-400 text-sm">email</span>
+                                                    marija@siol.net
+                                                </div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">9/8/2025</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+<div class="flex items-center justify-end gap-3">
+<button class="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400 transition-colors"><span class="material-icons-outlined text-lg">history</span></button>
+<button class="text-primary hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"><span class="material-icons-outlined text-lg">edit_note</span></button>
+<button class="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="py-3 px-4 border-t border-border-light dark:border-border-dark flex items-center justify-center">
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">
+                                    Previous
+                                </a>
+<a aria-current="page" class="z-10 bg-blue-50 dark:bg-blue-900 border-primary text-primary dark:text-blue-200 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    1
+                                </a>
+<a class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">
+                                    2
+                                </a>
+<a class="relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">
+                                    Next
+                                </a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

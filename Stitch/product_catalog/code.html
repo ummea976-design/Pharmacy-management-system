@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pharmacy Management System - Product Catalog</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563EB", // Royal Blue
+              secondary: "#16A34A", // Green for bulk import
+              "background-light": "#F3F4F6", // slate-100
+              "background-dark": "#0F172A", // slate-900
+              "surface-light": "#FFFFFF",
+              "surface-dark": "#1E293B", // slate-800
+              "border-light": "#E2E8F0",
+              "border-dark": "#334155",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.375rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }.custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 transition-colors duration-200">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark flex flex-col hidden md:flex transition-colors duration-200">
+<div class="h-16 flex items-center px-6 border-b border-border-light dark:border-border-dark">
+<span class="text-primary font-bold text-lg flex items-center gap-2">
+                    Pharmacy MS
+                </span>
+<button class="ml-auto text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined text-sm">arrow_back</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">dashboard</span>
+                    Overview
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">point_of_sale</span>
+                    Point of Sale
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">people</span>
+                    Customer
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">inventory_2</span>
+                    Stock Management
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium bg-primary text-white rounded-md shadow-md" href="#">
+<span class="material-icons-outlined text-xl">list_alt</span>
+                    Product Catalog
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">notifications_active</span>
+                    Stock Alerts
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">smart_toy</span>
+                    AI Analytics
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">analytics</span>
+                    Analytics &amp; Reports
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">history</span>
+                    Transaction History
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">settings_suggest</span>
+                    AI Configuration
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">person</span>
+                    User Profile
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl">settings</span>
+                    System Settings
+                </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark mt-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" href="#">
+<span class="material-icons-outlined text-xl flip-horizontal">logout</span>
+                    Sign Out
+                </a>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto p-4 md:p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Product Catalog</h1>
+<div class="flex items-center gap-3">
+<button class="bg-secondary hover:bg-green-700 text-white px-4 py-2 rounded shadow-sm text-sm font-medium flex items-center gap-2 transition-colors">
+<span class="material-icons-outlined text-lg">upload_file</span>
+                        Bulk Import
+                    </button>
+<button class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded shadow-sm text-sm font-medium flex items-center gap-2 transition-colors">
+<span class="material-icons-outlined text-lg">add</span>
+                        Add Product
+                    </button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-sm border border-border-light dark:border-border-dark">
+<div class="p-4 border-b border-border-light dark:border-border-dark space-y-4">
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons-outlined text-gray-400 text-xl">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-border-light dark:border-border-dark rounded-l-md rounded-r-none focus:ring-primary focus:border-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm" placeholder="Search by name, generic name, SKU, or manufacturer..." type="text"/>
+</div>
+<div class="w-full md:w-48">
+<select class="block w-full py-2 pl-3 pr-10 text-sm border border-border-light dark:border-border-dark rounded-md bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary">
+<option>All Categories</option>
+<option>Medicine</option>
+<option>Antibiotics</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-400">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span>Sort by:</span>
+<div class="relative">
+<select class="py-1 pl-2 pr-8 border border-border-light dark:border-border-dark rounded bg-white dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary">
+<option>Name</option>
+<option>Price</option>
+<option>SKU</option>
+</select>
+</div>
+<span class="material-icons-outlined text-gray-400 text-sm cursor-pointer hover:text-primary">arrow_upward</span>
+</div>
+<div class="flex items-center gap-2">
+<span>Per page:</span>
+<select class="py-1 pl-2 pr-8 border border-border-light dark:border-border-dark rounded bg-white dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary">
+<option>20</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<div>
+                            Showing 1 to 20 of 65 results
+                        </div>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-900/50 border-b border-border-light dark:border-border-dark text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+<th class="px-6 py-3 min-w-[250px]">Name</th>
+<th class="px-6 py-3">Category</th>
+<th class="px-6 py-3">SKU</th>
+<th class="px-6 py-3">Price</th>
+<th class="px-6 py-3">Requires RX</th>
+<th class="px-6 py-3 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">ACE</span>
+<span class="text-xs text-gray-500 italic">Generic: paracetamol</span>
+<span class="text-xs text-gray-400">Mfr: sdfds</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        sdfdsf
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">53534534</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$20.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Yes</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors" title="Barcode">
+<span class="material-icons-outlined text-lg">qr_code_2</span>
+</button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors" title="Edit">
+<span class="material-icons-outlined text-lg">edit</span>
+</button>
+<button class="text-red-500 hover:text-red-700 transition-colors" title="Delete">
+<span class="material-icons-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">ALGIN</span>
+<span class="text-xs text-gray-500 italic">Generic: paracetamol</span>
+<span class="text-xs text-gray-400">Mfr: Biomaxo</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        Medicine
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">4353453</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$10.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">No</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors"><span class="material-icons-outlined text-lg">qr_code_2</span></button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="text-red-500 hover:text-red-700 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">Albandazolebb</span>
+<span class="text-xs text-gray-500 italic">Generic: paracetamol</span>
+<span class="text-xs text-gray-400">Mfr: m1</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        Medicine
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">nn</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$50.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">No</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors"><span class="material-icons-outlined text-lg">qr_code_2</span></button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="text-red-500 hover:text-red-700 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">Amoxicillin 250mg</span>
+<span class="text-xs text-gray-500 italic">Generic: Amoxicillin</span>
+<span class="text-xs text-gray-400">Mfr: MedLife</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+                                        Antibiotics
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">AMX-250-001</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$25.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Yes</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors"><span class="material-icons-outlined text-lg">qr_code_2</span></button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="text-red-500 hover:text-red-700 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">Amoxicillin 250mg</span>
+<span class="text-xs text-gray-500 italic">Generic: paracetamol</span>
+<span class="text-xs text-gray-400">Mfr: aa</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        2
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">aa</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$10.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">No</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors"><span class="material-icons-outlined text-lg">qr_code_2</span></button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="text-red-500 hover:text-red-700 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">Beta hcg</span>
+<span class="text-xs text-gray-500 italic">Generic: Gonadotropin</span>
+<span class="text-xs text-gray-400">Mfr: Self Lab</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        Hcg Test
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Hcg</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$350.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">No</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors"><span class="material-icons-outlined text-lg">qr_code_2</span></button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="text-red-500 hover:text-red-700 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-gray-900 dark:text-white">Beterdine</span>
+<span class="text-xs text-gray-500 italic">Generic: Rx</span>
+<span class="text-xs text-gray-400">Mfr: Indian</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        Genetic
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">Bn1234</td>
+<td class="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">$50.00</td>
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">No</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-3">
+<button class="text-purple-500 hover:text-purple-700 transition-colors"><span class="material-icons-outlined text-lg">qr_code_2</span></button>
+<button class="text-blue-500 hover:text-blue-700 transition-colors"><span class="material-icons-outlined text-lg">edit</span></button>
+<button class="text-red-500 hover:text-red-700 transition-colors"><span class="material-icons-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-border-light dark:border-border-dark flex items-center justify-center">
+<nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+<a class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0" href="#">
+<span class="text-sm font-medium px-2">Previous</span>
+</a>
+<a aria-current="page" class="relative z-10 inline-flex items-center bg-blue-50 px-4 py-2 text-sm font-semibold text-primary ring-1 ring-inset ring-blue-100 dark:bg-blue-900 dark:text-blue-200 dark:ring-blue-800 focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" href="#">1</a>
+<a class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0" href="#">2</a>
+<a class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0 md:inline-flex" href="#">3</a>
+<a class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0 md:inline-flex" href="#">4</a>
+<a class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0" href="#">
+<span class="text-sm font-medium px-2">Next</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="h-8"></div>
+</main>
+</div>
+
+</body></html>

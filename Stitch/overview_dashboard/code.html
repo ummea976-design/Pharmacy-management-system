@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pharmacy Management System - Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563EB", // Blue 600 - Matches screenshot primary blue
+                        "primary-dark": "#1D4ED8", // Darker blue for hover states
+                        "background-light": "#F3F4F6", // Gray 100 - Main background
+                        "background-dark": "#111827", // Gray 900 - Dark mode background
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937", // Gray 800 - Card background
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-gray-800 dark:text-gray-200 antialiased transition-colors duration-200">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-700 flex flex-col hidden md:flex h-full fixed top-0 left-0 z-20 overflow-y-auto shadow-sm">
+<div class="h-16 flex items-center justify-between px-6 border-b border-gray-100 dark:border-gray-700">
+<span class="text-primary font-bold text-lg tracking-tight">Pharmacy MS</span>
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined text-sm">arrow_back</span>
+</button>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-1">
+<a class="flex items-center px-4 py-3 bg-primary text-white rounded-lg shadow-sm group" href="#">
+<span class="material-icons-outlined mr-3 text-xl">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">shopping_cart</span>
+<span class="text-sm font-medium">Point of Sale</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">people</span>
+<span class="text-sm font-medium">Customer</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">inventory</span>
+<span class="text-sm font-medium">Stock Management</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">category</span>
+<span class="text-sm font-medium">Product Catalog</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">notifications_active</span>
+<span class="text-sm font-medium">Stock Alerts</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">smart_toy</span>
+<span class="text-sm font-medium">AI Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">analytics</span>
+<span class="text-sm font-medium">Analytics &amp; Reports</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">history</span>
+<span class="text-sm font-medium">Transaction History</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">settings_suggest</span>
+<span class="text-sm font-medium">AI Configuration</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">person</span>
+<span class="text-sm font-medium">User Profile</span>
+</a>
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-white rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl">settings</span>
+<span class="text-sm font-medium">System Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-gray-100 dark:border-gray-700">
+<a class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 rounded-lg group transition-all duration-200" href="#">
+<span class="material-icons-outlined mr-3 text-xl transform scale-x-[-1]">logout</span>
+<span class="text-sm font-medium">Sign Out</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 ml-0 md:ml-72 h-full overflow-y-auto bg-background-light dark:bg-background-dark p-6 lg:p-10">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Overview</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Welcome back, Admin User</p>
+</div>
+<button class="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg flex items-center transition-all duration-200">
+<span class="material-icons-outlined text-xl mr-2">shopping_cart</span>
+<span class="font-medium">POS</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-primary rounded-xl p-6 text-white shadow-lg shadow-blue-500/20 flex justify-between items-center transition-transform hover:-translate-y-1">
+<div>
+<p class="text-blue-100 text-sm font-medium">Today's Sales</p>
+<h3 class="text-3xl font-bold mt-2">$0.00</h3>
+<p class="text-blue-100 text-xs mt-2 opacity-80">Total sales today</p>
+</div>
+<div class="bg-white/20 p-3 rounded-lg">
+<span class="material-icons-outlined text-3xl text-white">shopping_cart</span>
+</div>
+</div>
+<div class="bg-green-500 rounded-xl p-6 text-white shadow-lg shadow-green-500/20 flex justify-between items-center transition-transform hover:-translate-y-1">
+<div>
+<p class="text-green-100 text-sm font-medium">Monthly Revenue</p>
+<h3 class="text-3xl font-bold mt-2">$3,909.55</h3>
+<p class="text-green-100 text-xs mt-2 opacity-80">This month</p>
+</div>
+<div class="bg-white/20 p-3 rounded-lg">
+<span class="material-icons-outlined text-3xl text-white">payments</span>
+</div>
+</div>
+<div class="bg-yellow-500 rounded-xl p-6 text-white shadow-lg shadow-yellow-500/20 flex justify-between items-center transition-transform hover:-translate-y-1">
+<div>
+<p class="text-yellow-100 text-sm font-medium">Stock Alerts</p>
+<h3 class="text-3xl font-bold mt-2">9</h3>
+<p class="text-yellow-100 text-xs mt-2 opacity-80">Below reorder level</p>
+</div>
+<div class="bg-white/20 p-3 rounded-lg">
+<span class="material-icons-outlined text-3xl text-white">inventory_2</span>
+</div>
+</div>
+<div class="bg-red-500 rounded-xl p-6 text-white shadow-lg shadow-red-500/20 flex justify-between items-center transition-transform hover:-translate-y-1">
+<div>
+<p class="text-red-100 text-sm font-medium">Expiring Soon</p>
+<h3 class="text-3xl font-bold mt-2">4</h3>
+<p class="text-red-100 text-xs mt-2 opacity-80">Within 3 months</p>
+</div>
+<div class="bg-white/20 p-3 rounded-lg">
+<span class="material-icons-outlined text-3xl text-white">warning</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 mb-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold text-gray-800 dark:text-white">Sales Trend</h3>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1.5 rounded-full">Last 7 days</span>
+</div>
+<div class="w-full h-72 relative">
+<div class="absolute left-0 top-0 bottom-8 w-10 flex flex-col justify-between text-xs font-medium text-gray-400 text-right pr-3">
+<span>$1.4K</span>
+<span>$1.2K</span>
+<span>$1K</span>
+<span>$800</span>
+<span>$600</span>
+<span>$400</span>
+<span>$200</span>
+<span>$0</span>
+</div>
+<div class="absolute left-12 right-0 top-2 bottom-8">
+<div class="absolute w-full h-full flex flex-col justify-between pointer-events-none">
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-100 dark:border-gray-800 w-full h-0"></div>
+<div class="border-t border-gray-200 dark:border-gray-700 w-full h-0"></div>
+</div>
+<svg class="w-full h-full absolute top-0 left-0 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100">
+<defs>
+<linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2563EB" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#2563EB" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0,70 C20,75 40,80 50,60 C60,40 80,30 100,20" fill="none" stroke="#2563EB" stroke-linecap="round" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
+<path d="M0,70 C20,75 40,80 50,60 C60,40 80,30 100,20 V100 H0 Z" fill="url(#gradient)" stroke="none"></path>
+<circle class="fill-white stroke-primary stroke-2" cx="0" cy="70" r="3" vector-effect="non-scaling-stroke"></circle>
+<circle class="fill-white stroke-primary stroke-2" cx="25" cy="77" r="3" vector-effect="non-scaling-stroke"></circle>
+<circle class="fill-white stroke-primary stroke-2" cx="50" cy="60" r="3" vector-effect="non-scaling-stroke"></circle>
+<circle class="fill-white stroke-primary stroke-2" cx="75" cy="35" r="3" vector-effect="non-scaling-stroke"></circle>
+<circle class="fill-white stroke-primary stroke-2" cx="100" cy="20" r="3" vector-effect="non-scaling-stroke"></circle>
+</svg>
+</div>
+<div class="absolute left-12 right-0 bottom-0 flex justify-between text-xs font-medium text-gray-400">
+<span>Dec 07</span>
+<span>Dec 08</span>
+<span>Dec 09</span>
+<span>Dec 11</span>
+<span>Dec 12</span>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<h3 class="text-lg font-bold text-gray-800 dark:text-white mb-4 px-1">Quick Actions</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<button class="flex flex-col items-center justify-center p-8 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-2xl text-primary">shopping_cart</span>
+</div>
+<span class="text-sm font-semibold text-gray-700 dark:text-gray-300">New Sale</span>
+</button>
+<button class="flex flex-col items-center justify-center p-8 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-2xl text-green-500">add_circle</span>
+</div>
+<span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Add Product</span>
+</button>
+<button class="flex flex-col items-center justify-center p-8 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-2xl text-purple-500">assessment</span>
+</div>
+<span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Generate Report</span>
+</button>
+<button class="flex flex-col items-center justify-center p-8 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 group">
+<div class="w-12 h-12 rounded-full bg-yellow-50 dark:bg-yellow-900/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-2xl text-yellow-500">notifications</span>
+</div>
+<span class="text-sm font-semibold text-gray-700 dark:text-gray-300">View Alerts</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 h-full">
+<h3 class="text-lg font-bold text-gray-800 dark:text-white mb-6">Recent Sales</h3>
+<div class="space-y-4">
+<div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+<div class="flex justify-between items-start">
+<div class="w-full">
+<h4 class="font-bold text-gray-900 dark:text-white text-lg">$337.99</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">1x Amoxicillin 250mg, 1x Anas test, 10x ALGIN, 1x Amoxicillin 250mg</p>
+<div class="flex items-center mt-3 text-xs text-gray-400 font-medium">
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">person</span> Admin User</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">schedule</span> 12/12/2025 17:16:58</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+<div class="flex justify-between items-start">
+<div class="w-full">
+<h4 class="font-bold text-gray-900 dark:text-white text-lg">$257.99</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">1x Amoxicillin 250mg, 1x Anas test, 2x ALGIN, 1x Amoxicillin 250mg</p>
+<div class="flex items-center mt-3 text-xs text-gray-400 font-medium">
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">person</span> Admin User</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">schedule</span> 12/12/2025 17:16:22</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+<div class="flex justify-between items-start">
+<div class="w-full">
+<h4 class="font-bold text-gray-900 dark:text-white text-lg">$237.99</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">1x Amoxicillin 250mg, 1x Amoxicillin 250mg, 1x Anas test</p>
+<div class="flex items-center mt-3 text-xs text-gray-400 font-medium">
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">person</span> Admin User</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">schedule</span> 12/12/2025 01:10:48</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+<div class="flex justify-between items-start">
+<div class="w-full">
+<h4 class="font-bold text-gray-900 dark:text-white text-lg">$22.99</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">1x ALGIN, 1x Amoxicillin 250mg</p>
+<div class="flex items-center mt-3 text-xs text-gray-400 font-medium">
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">person</span> Admin User</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">schedule</span> 12/12/2025 01:10:25</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+<div class="flex justify-between items-start">
+<div class="w-full">
+<h4 class="font-bold text-gray-900 dark:text-white text-lg">$247.99</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">1x Amoxicillin 250mg, 1x Amoxicillin 250mg, 1x Anas test, 1x ALGIN</p>
+<div class="flex items-center mt-3 text-xs text-gray-400 font-medium">
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">person</span> Admin User</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="flex items-center"><span class="material-icons-outlined text-sm mr-1">schedule</span> 12/12/2025 01:10:09</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 h-full flex flex-col">
+<h3 class="text-lg font-bold text-gray-800 dark:text-white mb-6">Inventory Alerts</h3>
+<div class="flex-1 flex flex-col items-center justify-center p-8 text-gray-400 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50/50 dark:bg-gray-800/20">
+<div class="bg-white dark:bg-gray-800 p-4 rounded-full shadow-sm mb-4">
+<span class="material-icons-outlined text-4xl text-gray-300 dark:text-gray-600">inventory</span>
+</div>
+<p class="text-sm font-medium mb-1">No new alerts available</p>
+<p class="text-xs text-gray-400">Inventory levels are looking good.</p>
+</div>
+</div>
+</div>
+<div class="h-8"></div>
+</main>
+</div>
+
+</body></html>
